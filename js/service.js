@@ -1,4 +1,4 @@
-app.factory('moodService', [function() {
+app.factory('playlistService', [function() {
 	var moods = ['happy', 'sleepy'];
 	
 	return {
@@ -8,3 +8,4 @@ app.factory('moodService', [function() {
 	};
 
 }]);
+
