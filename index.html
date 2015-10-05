@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ngMoody</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<!-- Latest compiled and minified CSS & JS -->
+</head>
+<body class="container-fluid" ng-app="moodyApp">
+	<header>
+		<h1>Moody</h1>
+		<ul>
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/playlist">Playlist</a></li>
+		</ul>
+	</header>
+
+	<ng-view></ng-view>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>	
+	<script src="js/app.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/moodCtrl.js"></script>
+	<script src="js/playlistCtrl.js"></script>
+	<script src="js/directives.js"></script>
+	<script src="js/service.js"></script>
+</body>
+</html>
