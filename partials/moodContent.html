@@ -1,3 +1,19 @@
+<div class="row">
+	<div ng-repeat="track in vm.tracks">
+		<div class="col-md-12 track">
+			<div plangular="{{track.permalink_url}}">
+					<!-- <img ng-src="{{ track.artwork_url  }}" alt="{{ track.title }}" /> -->
+			        <h2 class="h4 caps">{{track.user.username}} - {{track.title}}</h2>
+			        <button ng-click="playPause()">Play/Pause</button>
+			        <small>{{ currentTime | hhmmss }} | {{ duration | hhmmss }}</small>
+			        <progress ng-value="currentTime / duration || 0">
+					  {{ currentTime / duration || 0 }}
+					</progress>
+			</div>
+		</div>
+	</div>
+</div>
+
 <!-- <div class="row">
 	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 		<div class="mood-buttons">I want to have FUN</div>
@@ -10,7 +26,7 @@
 	</div>
 </div> -->
 
-<div class="form-group">
+<!-- <div class="form-group">
 	<form class="form-inline" ng-submit="vm.getUser()">
 		<label>Search for tracks by username</label>
 		<input type="text" class="form-control" ng-model="vm.username">
@@ -19,11 +35,11 @@
 </div>
 
 <div ng-bind-html="iFrame"></div>
-
 <div class="row">
 	<div ng-repeat="song in vm.userTracks">
 		<div class="col-md-1 col-sm-2">
+			<p ng-click="play(song.permalink_url)">{{song.tag_list}}</p>
 			<img src="{{song.artwork_url}}" ng-click="play(song.permalink_url)" ng-if="song.artwork_url">
 		</div>
 	</div>
-</div>
+</div> -->

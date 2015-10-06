@@ -1,1 +1,1 @@
-var app = angular.module('moodyApp', ['ngRoute']);
+var app = angular.module('moodyApp', ['ngRoute', 'plangular']);

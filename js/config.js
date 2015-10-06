@@ -18,3 +18,7 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/404.html'
 		});
 });
+
+app.config(function(plangularConfigProvider){
+	plangularConfigProvider.clientId = '5c43e7e2b881c2eae59baf7fae3808e3';
+});
