@@ -3,9 +3,9 @@ app.service('soundService', function ($http, $q) {
 	var client_id = '5c43e7e2b881c2eae59baf7fae3808e3';
 
 	var genres = [
-		{name: "rock", moods: "alternative,acoustic"},
-		{name: "house", moods: "dance,party"},
-		{name: "hip-hop", moods: "underground"}
+		{name: "rock", moods: ""},
+		{name: "house", moods: ""},
+		{name: "hip-hop", moods: ""}
 	];
 
 	var genreData = [];
