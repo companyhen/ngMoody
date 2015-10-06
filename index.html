@@ -6,16 +6,22 @@
 	<!-- Latest compiled and minified CSS & JS -->
 	<link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
-<body class="container-fluid" ng-app="moodyApp">
+<body ng-app="moodyApp">
 	<header>
-		<h1>Moody</h1>
-		<ul>
-			<li><a href="#/">Home</a></li>
-			<li><a href="#/playlist">Playlist</a></li>
-		</ul>
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<a class="navbar-brand" href="#">Moody</a>
+			<ul class="nav navbar-nav">
+				<li class="active">
+					<a href="#/">Home</a>
+				</li>
+				<!-- <li>
+					<a href="#">Link</a>
+				</li> -->
+			</ul>
+		</nav>
 	</header>
 
-	<ng-view></ng-view>
+	<div class="container-fluid" ng-view></div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
