@@ -9,9 +9,8 @@ app.controller('PlaylistCtrl', function(soundService) {
 		ctrl.house = result[1].data;
 	});
 
-	ctrl.relax = soundService.then(function(result){
-		ctrl.relax = result[2].data;
-		console.log(ctrl.relax);
+	ctrl.hiphop = soundService.then(function(result){
+		ctrl.hiphop = result[2].data;
 	});
 
 });

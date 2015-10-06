@@ -7,9 +7,19 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/selectMood.html',
 			controller: 'MoodCtrl'
 		})
-		.when('/playlist',
+		.when('/rock',
 		{
-			templateUrl: 'partials/playlist.html',
+			templateUrl: 'partials/rock.html',
+			controller: 'PlaylistCtrl'
+		})
+		.when('/house',
+		{
+			templateUrl: 'partials/house.html',
+			controller: 'PlaylistCtrl'
+		})
+		.when('/hiphop',
+		{
+			templateUrl: 'partials/hiphop.html',
 			controller: 'PlaylistCtrl'
 		})
 		.otherwise(
