@@ -14,9 +14,18 @@ app.controller('MoodCtrl', function(soundService) {
 	// 	});
 	// }
 
-	var promise = soundService.getTracks();
-	promise.then(function (data) {
-		ctrl.tracks = data.data;
-		console.log(ctrl.tracks);
+	// var promise = soundService.getTracks();
+	// promise.then(function (data) {
+	// 	ctrl.tracks = data.data;
+	// 	console.log(ctrl.tracks);
+	// });
+
+	ctrl.rock = soundService.then(function(result){
+		ctrl.rock = result[0].data;
 	});
+
+	ctrl.house = soundService.then(function(result){
+		ctrl.house = result[1].data;
+	});
+
 });
