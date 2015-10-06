@@ -4,3 +4,11 @@
 	border: 2px solid #000;
 	text-align: center;
 }
+
+.hideGenre {
+	display: none;
+}
+
+.showGenre {
+	display: block;
+}
