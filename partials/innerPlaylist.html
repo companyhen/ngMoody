@@ -1,15 +1,9 @@
-<div class="col-md-12 track">
-	<h2 class="hideGenre" ng-class='{showGenre:$first}'>{{track.genre}}</h2>
-	<div plangular="{{track.permalink_url}}">
-			<!-- <img ng-src="{{ track.artwork_url  }}" alt="{{ track.title }}" /> -->
-	        <h2 class="h4 caps">{{track.user.username}} - {{track.title}}</h2>
-	        <button ng-click="previous()">Previous</button>
-	        <button ng-click="playPause()">Play/Pause</button>
-	        <button ng-click="next()">Next</button>
-	        <small>{{ currentTime | hhmmss }} | {{ duration | hhmmss }}</small>
-	        <progress ng-value="currentTime / duration || 0">
-			  {{ currentTime / duration || 0 }}
-			</progress>
-			<p>{{ 'Plays: ' + track.playback_count }}</p>
+<div class="row">
+	<div class="col-md-12">
+		<h2 class="hideGenre" ng-class='{showGenre:$first}'>{{track.genre}}</h2>
+		<a href="" ng-click="vm.clickHandler(track)">
+		    <h4 class="caps">{{track.user.username}} - {{track.title}}</h4>
+		</a>
+		<p>{{ 'Plays: ' + track.playback_count }}</p>
 	</div>
 </div>

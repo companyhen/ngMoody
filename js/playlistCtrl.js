@@ -1,7 +1,8 @@
-app.controller('PlaylistCtrl', function(soundService) {
+app.controller('PlaylistCtrl', function(soundService, $sce, $timeout) {
 	var ctrl = this;
 
 	ctrl.rock = soundService.then(function(result){
+		console.log(result[0].data)
 		ctrl.rock = result[0].data;
 	});
 
@@ -12,5 +13,13 @@ app.controller('PlaylistCtrl', function(soundService) {
 	ctrl.hiphop = soundService.then(function(result){
 		ctrl.hiphop = result[2].data;
 	});
+
+	// ng-click="vm.clickhandler(track)"
+	ctrl.clickHandler = function (track) {
+		ctrl.url = null;
+		$timeout(function(){
+			ctrl.url = $sce.trustAsResourceUrl(track.stream_url + '?client_id=5c43e7e2b881c2eae59baf7fae3808e3');
+		})
+	};
 
 });

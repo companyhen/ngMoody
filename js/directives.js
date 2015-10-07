@@ -3,7 +3,8 @@ app.directive('moodContent', function(){
 	return {
 		restrict: 'EA', // E = Element, A = Attribute, C = Class, M = Comment
 		templateUrl: 'partials/moodContent.html',
-		replace: false
+		replace: false,
+
 	};
 });
 
@@ -15,4 +16,14 @@ app.directive('playlist', function(){
 		replace: false
 	};
 });
+
+app.directive('player', function(){
+	// Runs during compile
+	return {
+		restrict: 'EA', // E = Element, A = Attribute, C = Class, M = Comment
+		templateUrl: 'partials/player.html',
+		replace: false
+	};
+});
+
 

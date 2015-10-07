@@ -1,0 +1,20 @@
+<!-- <div plangular="{{vm.url}}">
+	<button ng-click="previous()">Previous</button>
+	<button ng-click="playPause()">Play/Pause</button>
+	<button ng-click="next()">Next</button>
+	<small>{{ currentTime | hhmmss }} | {{ duration | hhmmss }}</small>
+	<progress ng-value="currentTime / duration || 0">
+	  {{ currentTime / duration || 0 }}
+	</progress>
+</div>
+ -->
+<div class="row">
+	<div class="col-md-12">
+		<span ng-if="vm.url">
+			<audio controls autoplay>
+			  <source ng-src="{{vm.url}}">
+			Your browser does not support the audio element.
+			</audio>
+		</span>
+	</div>
+</div>
