@@ -4,6 +4,7 @@ app.controller('PlaylistCtrl', function(soundService, $sce, $timeout) {
 	ctrl.rock = soundService.then(function(result){
 		console.log(result[0].data)
 		ctrl.rock = result[0].data;
+		ctrl.url = $sce.trustAsResourceUrl(result[0].data[0].stream_url + '?client_id=5c43e7e2b881c2eae59baf7fae3808e3');
 	});
 
 	ctrl.house = soundService.then(function(result){
@@ -22,4 +23,7 @@ app.controller('PlaylistCtrl', function(soundService, $sce, $timeout) {
 		})
 	};
 
+	ctrl.loadPlaylist= function(genre) {
+		ctrl.url = $sce.trustAsResourceUrl(genre.stream_url + '?client_id=5c43e7e2b881c2eae59baf7fae3808e3');
+	}
 });
