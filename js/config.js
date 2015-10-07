@@ -10,17 +10,17 @@ app.config(function($routeProvider){
 		.when('/rock',
 		{
 			templateUrl: 'partials/rock.html',
-			controller: 'PlaylistCtrl'
+			controller: 'RockCtrl'
 		})
 		.when('/house',
 		{
 			templateUrl: 'partials/house.html',
-			controller: 'PlaylistCtrl'
+			controller: 'HouseCtrl'
 		})
 		.when('/hiphop',
 		{
 			templateUrl: 'partials/hiphop.html',
-			controller: 'PlaylistCtrl'
+			controller: 'HiphopCtrl'
 		})
 		.otherwise(
 		{
