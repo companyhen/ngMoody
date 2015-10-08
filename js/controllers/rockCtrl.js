@@ -1,22 +1,19 @@
-app.controller('RockCtrl', function($scope, soundService, $sce, $timeout, client_id) {
+app.controller('RockCtrl', function($scope, soundService, $sce, $timeout, client_id, $filter) {
 	var ctrl = this;
 
 	ctrl.songs = [];
 	ctrl.playerInfo = {};
 	ctrl.isStreaming = true;
-
-	ctrl.rock = soundService.then(function(result){
-
-		result.forEach(function(song) {
-			ctrl.songs.push(song);
-		});
-
-		ctrl.playerInfo.total = result[0].data.length;
+	ctrl.rockSongs = soundService.then(function(result){
+		ctrl.rockSongs = result[0].data;
+		ctrl.playerInfo.total = ctrl.rockSongs.length;
 		ctrl.playerInfo.song = 0;
 
-		ctrl.rock = result[0].data;
-		ctrl.url = $sce.trustAsResourceUrl(result[0].data[ctrl.playerInfo.song].stream_url + client_id);
+
+		$filter('shuffle')(ctrl.rockSongs);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.rockSongs[ctrl.playerInfo.song].stream_url + client_id);
 	});
+
 
 	ctrl.clickHandler = function (track, index) {
 		//ctrl.url = null;
