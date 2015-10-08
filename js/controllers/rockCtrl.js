@@ -1,18 +1,64 @@
-app.controller('RockCtrl', function(soundService, $sce, $timeout) {
+app.controller('RockCtrl', function($scope, soundService, $sce, $timeout, client_id) {
 	var ctrl = this;
-	var client_id = '?client_id=5c43e7e2b881c2eae59baf7fae3808e3';
+
+	ctrl.songs = [];
+	ctrl.playerInfo = {};
+	ctrl.isStreaming = true;
 
 	ctrl.rock = soundService.then(function(result){
+
+		result.forEach(function(song) {
+			ctrl.songs.push(song);
+		});
+
+		ctrl.playerInfo.total = result[0].data.length;
+		ctrl.playerInfo.song = 0;
+
 		ctrl.rock = result[0].data;
-		ctrl.url = $sce.trustAsResourceUrl(result[0].data[0].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(result[0].data[ctrl.playerInfo.song].stream_url + client_id);
 	});
 
-	// ng-click="vm.clickhandler(track)"
 	ctrl.clickHandler = function (track) {
-		ctrl.url = null;
+		//ctrl.url = null;
 		$timeout(function(){
+			// console.log($sce.trustAsResourceUrl(track.stream_url + client_id));
 			ctrl.url = $sce.trustAsResourceUrl(track.stream_url + client_id);
-		})
+			console.log(track);
+			ctrl.isStreaming = true;
+		})		
 	};
+
+	ctrl.play = function () {
+		document.getElementById('audio').play();
+		ctrl.isStreaming = true;
+	}
+
+	ctrl.pause = function () {
+		document.getElementById('audio').pause();
+		ctrl.isStreaming = false;
+	}
+
+	ctrl.prev = function () {
+		// ctrl.url = null;
+		if (ctrl.playerInfo.song - 1 < 0) {
+		    ctrl.playerInfo.song = ctrl.playerInfo.total - 1;
+		} else {
+		    ctrl.playerInfo.song -= 1;
+		}
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[0].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.isStreaming = true;
+	};
+
+	ctrl.next = function () {
+		// ctrl.url = null;
+		if (ctrl.playerInfo.song + 1 === ctrl.playerInfo.total) {
+		    ctrl.playerInfo.song = 0;
+		} else {
+		    ctrl.playerInfo.song += 1;
+		}
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[0].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.isStreaming = true;
+	};
+
 
 });
