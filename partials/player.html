@@ -1,24 +1,14 @@
-<!-- <div plangular="{{vm.url}}">
-	<button ng-click="previous()">Previous</button>
-	<button ng-click="playPause()">Play/Pause</button>
-	<button ng-click="next()">Next</button>
-	<small>{{ currentTime | hhmmss }} | {{ duration | hhmmss }}</small>
-	<progress ng-value="currentTime / duration || 0">
-	  {{ currentTime / duration || 0 }}
-	</progress>
-</div>
- -->
 <div class="row">
 	<div class="col-md-12">
 		<span ng-show="vm.url" ng-if="vm.url">
-			<audio controls autoplay>
-			  <source ng-src="{{vm.url}}">
+			<audio id="audio" ng-src="{{vm.url}}" controls autoplay ended url="vm.url">
 			Your browser does not support the audio element.
 			</audio>
+			<button type="button" class="btn btn-xs btn-default" ng-click="vm.prev()">Prev</button>
+			<button type="button" class="btn btn-xs btn-default" ng-click="vm.next()">Next</button>
 		</span>
 		<span ng-show="!vm.url">
-			<audio controls>
-			  <source ng-src="{{vm.url}}">
+			<audio ng-src="{{vm.url}}" controls>
 			Your browser does not support the audio element.
 			</audio>
 		</span>
