@@ -3,16 +3,10 @@ app.service('soundService', function ($http, $q, client_id) {
 	var genres = [
 		{name: "rock", moods: ""}, // 0
 		{name: "house", moods: ""}, // 1
-		{name: "hip-hop", moods: ""}, // 2
-		{name: "relax", moods: ""}, // 3
-		{name: "relax", moods: ""}, // 4
-		{name: "relax", moods: ""}, // 5
-		{name: "relax", moods: ""}, // 6
-		{name: "relax", moods: ""}, // 7
-		{name: "relax", moods: ""}, // 8
-		{name: "relax", moods: ""}, // 9
-		{name: "relax", moods: ""}, // 10
-		{name: "relax", moods: ""}, // 11
+		{name: "hiphop", moods: ""}, // 2
+		{name: "classical", moods: ""}, // 3
+		{name: "reggae", moods: ""}, // 4
+		{name: "ambient", moods: ""} // 5
 	];
 
 	var genreData = [];

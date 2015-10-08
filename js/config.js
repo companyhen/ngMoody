@@ -22,6 +22,21 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/hiphop.html',
 			controller: 'HiphopCtrl'
 		})
+		.when('/classical',
+		{
+			templateUrl: 'partials/classical.html',
+			controller: 'ClassicalCtrl'
+		})
+		.when('/reggae',
+		{
+			templateUrl: 'partials/reggae.html',
+			controller: 'ReggaeCtrl'
+		})
+		.when('/ambient',
+		{
+			templateUrl: 'partials/ambient.html',
+			controller: 'AmbientCtrl'
+		})
 		.otherwise(
 		{
 			redirectTo: '/404',

@@ -26,70 +26,14 @@
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/rock">
-					<button type="button" class="btn btn-default">Rock</button>
-				</a>
+			<div class="col-md-2">
+				<mood-nav></mood-nav>
 			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/house">
-					<button type="button" class="btn btn-default">House</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/hiphop">
-					<button type="button" class="btn btn-default">Hip-Hop</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/hiphop">
-					<button type="button" class="btn btn-default">Hip-Hop</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/hiphop">
-					<button type="button" class="btn btn-default">Hip-Hop</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/hiphop">
-					<button type="button" class="btn btn-default">Hip-Hop</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/rock">
-					<button type="button" class="btn btn-default">Rock</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/house">
-					<button type="button" class="btn btn-default">House</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/hiphop">
-					<button type="button" class="btn btn-default">Hip-Hop</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/hiphop">
-					<button type="button" class="btn btn-default">Hip-Hop</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/hiphop">
-					<button type="button" class="btn btn-default">Hip-Hop</button>
-				</a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 mood">
-				<a href="#/hiphop">
-					<button type="button" class="btn btn-default">Hip-Hop</button>
-				</a>
+			<div class="col-md-10">
+				<div ng-view></div>
 			</div>
 		</div>
 	</div>
-
-	<div class="container-fluid" ng-view></div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
@@ -101,7 +45,9 @@
 	<script src="js/controllers/rockCtrl.js"></script>
 	<script src="js/controllers/houseCtrl.js"></script>
 	<script src="js/controllers/hiphopCtrl.js"></script>
-	<script src="js/controllers/testCtrl.js"></script>
+	<script src="js/controllers/classicalCtrl.js"></script>
+	<script src="js/controllers/reggaeCtrl.js"></script>
+	<script src="js/controllers/ambientCtrl.js"></script>
 	<script src="js/directives.js"></script>
 	<script src="js/service.js"></script>
 </body>

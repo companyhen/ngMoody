@@ -8,6 +8,16 @@ app.directive('moodContent', function(){
 	};
 });
 
+app.directive('moodNav', function(){
+	// Runs during compile
+	return {
+		restrict: 'EA', // E = Element, A = Attribute, C = Class, M = Comment
+		templateUrl: 'partials/moodNav.html',
+		replace: false,
+
+	};
+});
+
 app.directive('playlist', function(){
 	// Runs during compile
 	return {

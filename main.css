@@ -9,16 +9,20 @@
 	text-align: center;
 }
 
-.mood button {
+.mood .btn {
 	width: 100%;
 	margin-bottom: 2px;
+	letter-spacing: 6px;
+}
+
+.mood .disabled {
+	letter-spacing: 1px;
 }
 
 #audio {
 }
 
 .audioControls {
-	margin-top: 30px;
 }
 
 .mood-buttons {
@@ -54,6 +58,10 @@
 	float: right;
     margin-top: -20px;
     font-weight: 800;
+}
+
+@media (max-width: 991px) {
+	.disabled { display: none; }
 }
 
 @media (max-width: 768px) {
