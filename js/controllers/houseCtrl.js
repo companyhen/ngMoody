@@ -1,12 +1,10 @@
-app.controller('HouseCtrl', function(soundService, $sce, $timeout, client_id) {
+app.controller('HouseCtrl', function($scope, soundService, $sce, $timeout, client_id) {
 	var ctrl = this;
 
 	ctrl.songs = [];
 	ctrl.playerInfo = {};
 
 	ctrl.house = soundService.then(function(result){
-		// console.log(ctrl.audio);
-
 		result.forEach(function(song) {
 			ctrl.songs.push(song);
 		});
@@ -16,10 +14,6 @@ app.controller('HouseCtrl', function(soundService, $sce, $timeout, client_id) {
 
 		ctrl.house = result[1].data;
 		ctrl.url = $sce.trustAsResourceUrl(result[1].data[ctrl.playerInfo.song].stream_url + client_id);
-
-		// document.getElementById('audio').addEventListener('ended', function() {
-	 	// ctrl.$apply(ctrl.next());
-		// }, false);
 	});
 
 	ctrl.clickHandler = function (track) {
@@ -30,7 +24,15 @@ app.controller('HouseCtrl', function(soundService, $sce, $timeout, client_id) {
 		})
 	};
 
-	ctrl.prev = function() {
+	ctrl.play = function () {
+		document.getElementById('audio').play();
+	}
+
+	ctrl.pause = function () {
+		document.getElementById('audio').pause();
+	}
+
+	ctrl.prev = function () {
 		// ctrl.url = null;
 		if (ctrl.playerInfo.song - 1 < 0) {
 		    ctrl.playerInfo.song = ctrl.playerInfo.total - 1;

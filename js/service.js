@@ -1,6 +1,4 @@
-app.service('soundService', function ($http, $q) {
-
-	var client_id = '5c43e7e2b881c2eae59baf7fae3808e3';
+app.service('soundService', function ($http, $q, client_id) {
 
 	var genres = [
 		{name: "rock", moods: ""},
@@ -25,7 +23,7 @@ app.service('soundService', function ($http, $q) {
 		for(i=0; i<genres.length; i++){
 			var genre = genres[i].name;
 			var moods = genres[i].moods;
-			genreData[i] = $http.get('http://api.soundcloud.com/tracks.json?client_id=' + client_id + '&q=' + moods + '&genres=' + genre + '&limit=20&duration[from]=100000&duration[to]=400000&order=hotness');
+			genreData[i] = $http.get('http://api.soundcloud.com/tracks.json' + client_id + '&q=' + moods + '&genres=' + genre + '&limit=20&duration[from]=100000&duration[to]=400000&order=hotness');
 		}
 		return $q.all(genreData);
 	}

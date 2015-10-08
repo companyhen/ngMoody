@@ -50,6 +50,7 @@ app.directive('ended', function(soundService, client_id) {
 			var audio = document.getElementById("audio");
 			audio.onended = function() {
 				alert("The audio has ended");
+				$scope.next();
 			};
 			
 			$scope.next = function() {

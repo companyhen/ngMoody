@@ -1,10 +1,12 @@
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12 audioControls">
 		<span ng-show="vm.url" ng-if="vm.url">
-			<audio id="audio" ng-src="{{vm.url}}" controls autoplay ended url="vm.url">
+			<audio id="audio" ng-src="{{vm.url}}" controls ended url="vm.url">
 			Your browser does not support the audio element.
 			</audio>
 			<button type="button" class="btn btn-xs btn-default" ng-click="vm.prev()">Prev</button>
+			<button type="button" class="btn btn-xs btn-default" ng-click="vm.play()">Play</button>
+			<button type="button" class="btn btn-xs btn-default" ng-click="vm.pause()">Pause</button>
 			<button type="button" class="btn btn-xs btn-default" ng-click="vm.next()">Next</button>
 		</span>
 		<span ng-show="!vm.url">
