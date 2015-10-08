@@ -18,14 +18,13 @@ app.controller('HouseCtrl', function($scope, soundService, $sce, $timeout, clien
 		ctrl.url = $sce.trustAsResourceUrl(result[1].data[ctrl.playerInfo.song].stream_url + client_id);
 	});
 
-	ctrl.clickHandler = function (track) {
+	ctrl.clickHandler = function (track, index) {
 		//ctrl.url = null;
 		$timeout(function(){
-			// console.log($sce.trustAsResourceUrl(track.stream_url + client_id));
 			ctrl.url = $sce.trustAsResourceUrl(track.stream_url + client_id);
-			console.log(track);
 			ctrl.isStreaming = true;
-		})		
+		})
+		ctrl.playerInfo.song = index;
 	};
 
 	ctrl.play = function () {

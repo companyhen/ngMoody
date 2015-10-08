@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<h2 class="hideGenre" ng-class='{showGenre:$first}'>{{track.genre}}</h2>
 		<div class="col-md-12 trackInfo">
-			<a href="" ng-click="vm.clickHandler(track)">
+			<a href="" ng-click="vm.clickHandler(track, $index)">
 			    <h4 class="caps">{{track.user.username}} - {{track.title}}</h4>
 			    <small>Plays: {{ track.playback_count | number }}</small>
 			</a>
