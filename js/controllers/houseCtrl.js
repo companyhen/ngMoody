@@ -3,8 +3,10 @@ app.controller('HouseCtrl', function($scope, soundService, $sce, $timeout, clien
 
 	ctrl.songs = [];
 	ctrl.playerInfo = {};
+	ctrl.isStreaming = true;
 
 	ctrl.house = soundService.then(function(result){
+
 		result.forEach(function(song) {
 			ctrl.songs.push(song);
 		});
@@ -17,19 +19,23 @@ app.controller('HouseCtrl', function($scope, soundService, $sce, $timeout, clien
 	});
 
 	ctrl.clickHandler = function (track) {
-		ctrl.url = null;
+		//ctrl.url = null;
 		$timeout(function(){
 			// console.log($sce.trustAsResourceUrl(track.stream_url + client_id));
 			ctrl.url = $sce.trustAsResourceUrl(track.stream_url + client_id);
-		})
+			console.log(track);
+			ctrl.isStreaming = true;
+		})		
 	};
 
 	ctrl.play = function () {
 		document.getElementById('audio').play();
+		ctrl.isStreaming = true;
 	}
 
 	ctrl.pause = function () {
 		document.getElementById('audio').pause();
+		ctrl.isStreaming = false;
 	}
 
 	ctrl.prev = function () {
@@ -40,6 +46,7 @@ app.controller('HouseCtrl', function($scope, soundService, $sce, $timeout, clien
 		    ctrl.playerInfo.song -= 1;
 		}
 		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[1].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.isStreaming = true;
 	};
 
 	ctrl.next = function () {
@@ -50,6 +57,7 @@ app.controller('HouseCtrl', function($scope, soundService, $sce, $timeout, clien
 		    ctrl.playerInfo.song += 1;
 		}
 		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[1].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.isStreaming = true;
 	};
 
 });

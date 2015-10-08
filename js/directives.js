@@ -57,7 +57,8 @@ app.directive('ended', function(soundService, client_id) {
 				$scope.url = $sce.trustAsResourceUrl('https://api.soundcloud.com/tracks/225919516/stream' + client_id);
 			};
 			
-			console.log($scope.url);
+			//console.log($scope.url);
 		}
 	};
 });
+
