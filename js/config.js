@@ -12,7 +12,7 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/rock.html',
 			controller: 'RockCtrl'
 		})
-		.when('/chill',
+		.when('/bouncy',
 		{
 			templateUrl: 'partials/house.html',
 			controller: 'PlaylistCtrl'

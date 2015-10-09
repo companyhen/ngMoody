@@ -3,7 +3,7 @@ app.service('soundService', function ($http, $q, client_id) {
 	var genres = [
 		{name: "rock", moods: ""}, // 0
 		{name: "house", moods: ""}, // 1
-		{name: "hiphop", moods: ""}, // 2
+		{name: "trap", moods: ""}, // 2
 		{name: "classical", moods: ""}, // 3
 		{name: "reggae", moods: ""}, // 4
 		{name: "ambient", moods: ""} // 5
@@ -13,14 +13,6 @@ app.service('soundService', function ($http, $q, client_id) {
 	
 	// defer = call me after you've done a bunch of other stuff happens
 	var deferred = $q.defer();
-
-	// function(err) {
- //        $http.get('data.json').success(function(response) {
- //          deferred.resolve(response);              
- //        }).error(function(error) {
- //          deferred.reject()
- //        });
- //    })
 
 	function listGenres(){
 		for(i=0; i<genres.length; i++){
