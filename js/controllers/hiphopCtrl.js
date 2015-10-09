@@ -19,9 +19,7 @@ app.controller('HiphopCtrl', function($scope, soundService, $sce, $timeout, clie
 	});
 
 	ctrl.clickHandler = function (track, index) {
-		//ctrl.url = null;
 		$timeout(function(){
-			// console.log($sce.trustAsResourceUrl(track.stream_url + client_id));
 			ctrl.url = $sce.trustAsResourceUrl(track.stream_url + client_id);
 			console.log(track);
 			ctrl.isStreaming = true;

@@ -1,8 +1,5 @@
-.trackInfo h4 { 
-	margin: 0;
-	white-space: nowrap; 
-	overflow: hidden;
-  	text-overflow: ellipsis; 
+body {
+	text-shadow: 1px 1px 2px rgba(0,0,0,.2);
 }
 
 .mood {
@@ -11,8 +8,9 @@
 
 .mood .btn {
 	width: 100%;
-	margin-bottom: 2px;
+	margin-bottom: 1px;
 	letter-spacing: 6px;
+	box-shadow: -2px 4px 10px rgba(0,0,0,.1);
 }
 
 .mood .disabled {
@@ -38,16 +36,36 @@
 
 .showGenre {
 	display: block;
+	text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+
+.btn-player { 
+    box-shadow: -4px 6px 10px rgba(0,0,0,.1);
 }
 
 .trackInfo {
 	background: rgba(255,255,255,.15);
 	margin-bottom: 1px;
-	padding: 10px;
+	padding: 18px;
+	box-shadow: -5px 12px 10px rgba(0,0,0,.08);
 }
 
 .trackInfo:hover {
 	background: rgba(255,255,255,.2);
+}
+
+.trackInfo h4 { 
+	margin: 0;
+	white-space: nowrap; 
+	overflow: hidden;
+  	text-overflow: ellipsis; 
+  	letter-spacing: 6px;
+  	font-size: 1.05em;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 .trackInfo a {
@@ -60,12 +78,60 @@
     font-weight: 800;
 }
 
+.chooseGenre { 
+	font-weight: 500;
+	letter-spacing: 2px; 
+}
+
+.finger {
+	margin-left: 10px;
+}
+
+#fingerLeft { 
+	animation: 
+	  bounce 1.0s linear 1;
+}
+
+#fingerUp { 
+	display: none; 
+}
+
+.homePointer {
+	margin-top: 5px;
+}
+
+.moodNav {
+	text-transform: uppercase;
+}
+
+.moodNav a {
+	font-size: .85em;
+	font-weight: 500;
+	text-shadow: 1px 1px 2px rgba(0,0,0,.3);
+}
+
+.leftNav {
+	text-transform: uppercase;
+}
+
 @media (max-width: 991px) {
 	.disabled { display: none; }
+	#fingerLeft { display: none; }
+	#fingerUp { display: inline-block; }
 }
 
 @media (max-width: 768px) {
 	/*.trackInfo { padding-bottom: 10px; }*/
 	.trackInfo h4 { font-size: .8em; }
 	.trackInfo small { display: none; }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(1500px, 0);    
+  }
+
+  100% {
+  	transform: translate(0, 0);
+  }
 }
