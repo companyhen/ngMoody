@@ -1,32 +1,27 @@
-app.controller('ReggaeCtrl', function($scope, soundService, $sce, $timeout, client_id) {
+app.controller('ReggaeCtrl', function($scope, soundService, $sce, $timeout, client_id, $filter) {
 	var ctrl = this;
 
 	ctrl.songs = [];
 	ctrl.playerInfo = {};
 	ctrl.isStreaming = true;
-
-	ctrl.reggae = soundService.then(function(result){
-
-		result.forEach(function(song) {
-			ctrl.songs.push(song);
-		});
-
-		ctrl.playerInfo.total = result[4].data.length;
+	ctrl.reggaeSongs = soundService.then(function(result){
+		ctrl.reggaeSongs = result[4].data;
+		ctrl.playerInfo.total = ctrl.reggaeSongs.length;
 		ctrl.playerInfo.song = 0;
 
-		ctrl.reggae = result[4].data;
-		ctrl.url = $sce.trustAsResourceUrl(result[4].data[ctrl.playerInfo.song].stream_url + client_id);
+		$filter('shuffle')(ctrl.reggaeSongs);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.reggaeSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.reggaeSongs[ctrl.playerInfo.song].title;
 	});
 
 	ctrl.clickHandler = function (track, index) {
 		//ctrl.url = null;
 		$timeout(function(){
-			// console.log($sce.trustAsResourceUrl(track.stream_url + client_id));
 			ctrl.url = $sce.trustAsResourceUrl(track.stream_url + client_id);
-			console.log(track);
 			ctrl.isStreaming = true;
 		})
 		ctrl.playerInfo.song = index;
+		ctrl.currentSong = ctrl.reggaeSongs[ctrl.playerInfo.song].title;
 	};
 
 	ctrl.play = function () {
@@ -46,7 +41,8 @@ app.controller('ReggaeCtrl', function($scope, soundService, $sce, $timeout, clie
 		} else {
 		    ctrl.playerInfo.song -= 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[4].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.reggaeSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.reggaeSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 
@@ -57,7 +53,8 @@ app.controller('ReggaeCtrl', function($scope, soundService, $sce, $timeout, clie
 		} else {
 		    ctrl.playerInfo.song += 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[4].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.reggaeSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.reggaeSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 

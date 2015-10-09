@@ -15,7 +15,7 @@ app.config(function($routeProvider){
 		.when('/house',
 		{
 			templateUrl: 'partials/house.html',
-			controller: 'HouseCtrl'
+			controller: 'PlaylistCtrl'
 		})
 		.when('/hiphop',
 		{
@@ -41,6 +41,10 @@ app.config(function($routeProvider){
 		{
 			templateUrl: 'partials/moodMixer.html',
 			controller: 'MoodMixerCtrl'
+		.when('/testgenre',
+		{
+			templateUrl: 'partials/testGenre.html',
+			controller: 'PlaylistCtrl'
 		})
 		.otherwise(
 		{

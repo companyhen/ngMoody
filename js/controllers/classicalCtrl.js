@@ -1,32 +1,28 @@
-app.controller('ClassicalCtrl', function($scope, soundService, $sce, $timeout, client_id) {
+app.controller('ClassicalCtrl', function($scope, soundService, $sce, $timeout, client_id, $filter) {
 	var ctrl = this;
 
 	ctrl.songs = [];
 	ctrl.playerInfo = {};
 	ctrl.isStreaming = true;
-
-	ctrl.classical = soundService.then(function(result){
-
-		result.forEach(function(song) {
-			ctrl.songs.push(song);
-		});
-
-		ctrl.playerInfo.total = result[3].data.length;
+	ctrl.classicalSongs = soundService.then(function(result){
+		ctrl.classicalSongs = result[3].data;
+		ctrl.playerInfo.total = ctrl.classicalSongs.length;
 		ctrl.playerInfo.song = 0;
 
-		ctrl.classical = result[3].data;
-		ctrl.url = $sce.trustAsResourceUrl(result[3].data[ctrl.playerInfo.song].stream_url + client_id);
+		$filter('shuffle')(ctrl.classicalSongs);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.classicalSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.classicalSongs[ctrl.playerInfo.song].title;
 	});
+
 
 	ctrl.clickHandler = function (track, index) {
 		//ctrl.url = null;
 		$timeout(function(){
-			// console.log($sce.trustAsResourceUrl(track.stream_url + client_id));
 			ctrl.url = $sce.trustAsResourceUrl(track.stream_url + client_id);
-			console.log(track);
 			ctrl.isStreaming = true;
 		})
 		ctrl.playerInfo.song = index;
+		ctrl.currentSong = ctrl.classicalSongs[ctrl.playerInfo.song].title;
 	};
 
 	ctrl.play = function () {
@@ -46,7 +42,8 @@ app.controller('ClassicalCtrl', function($scope, soundService, $sce, $timeout, c
 		} else {
 		    ctrl.playerInfo.song -= 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[3].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.classicalSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.classicalSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 
@@ -57,7 +54,8 @@ app.controller('ClassicalCtrl', function($scope, soundService, $sce, $timeout, c
 		} else {
 		    ctrl.playerInfo.song += 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[3].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.classicalSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.classicalSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 

@@ -1,30 +1,28 @@
-app.controller('HiphopCtrl', function($scope, soundService, $sce, $timeout, client_id) {
+app.controller('HiphopCtrl', function($scope, soundService, $sce, $timeout, client_id, $filter) {
 	var ctrl = this;
 
 	ctrl.songs = [];
 	ctrl.playerInfo = {};
 	ctrl.isStreaming = true;
-
-	ctrl.hiphop = soundService.then(function(result){
-
-		result.forEach(function(song) {
-			ctrl.songs.push(song);
-		});
-
-		ctrl.playerInfo.total = result[2].data.length;
+	ctrl.hiphopSongs = soundService.then(function(result){
+		ctrl.hiphopSongs = result[2].data;
+		ctrl.playerInfo.total = ctrl.hiphopSongs.length;
 		ctrl.playerInfo.song = 0;
 
-		ctrl.hiphop = result[2].data;
-		ctrl.url = $sce.trustAsResourceUrl(result[2].data[ctrl.playerInfo.song].stream_url + client_id);
+		$filter('shuffle')(ctrl.hiphopSongs);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.hiphopSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.hiphopSongs[ctrl.playerInfo.song].title;
 	});
 
+
 	ctrl.clickHandler = function (track, index) {
+		//ctrl.url = null;
 		$timeout(function(){
 			ctrl.url = $sce.trustAsResourceUrl(track.stream_url + client_id);
-			console.log(track);
 			ctrl.isStreaming = true;
 		})
 		ctrl.playerInfo.song = index;
+		ctrl.currentSong = ctrl.hiphopSongs[ctrl.playerInfo.song].title;
 	};
 
 	ctrl.play = function () {
@@ -44,7 +42,8 @@ app.controller('HiphopCtrl', function($scope, soundService, $sce, $timeout, clie
 		} else {
 		    ctrl.playerInfo.song -= 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[2].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.hiphopSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.hiphopSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 
@@ -55,7 +54,8 @@ app.controller('HiphopCtrl', function($scope, soundService, $sce, $timeout, clie
 		} else {
 		    ctrl.playerInfo.song += 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[2].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.hiphopSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.hiphopSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 

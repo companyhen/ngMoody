@@ -2,6 +2,16 @@ body {
 	text-shadow: 1px 1px 2px rgba(0,0,0,.2);
 }
 
+.navbar-inverse .navbar-brand {
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 800;
+}
+
+.headContainer {
+	position: relative;
+}
+
 .mood {
 	text-align: center;
 }
@@ -20,7 +30,65 @@ body {
 #audio {
 }
 
+.parentScope {
+	display: none;
+}
+
 .audioControls {
+	width: 238px;
+    background: rgba(0,0,0,.2);
+    padding: 12px;
+}
+
+.progress {
+	position: absolute;
+	width: 150px;
+    top: 26px;
+    left: 198px;
+    height: 8px;
+    box-shadow: -3px 2px 0px rgba(0,0,0,.15);
+}
+
+div.marquee {
+    white-space:no-wrap;
+    overflow:hidden;
+    text-overflow: ellipsis; 
+    width: 220px;
+    margin-top: 7px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: .85em;
+}
+div.marquee > div.marquee-text {
+    white-space:nowrap;
+    display:inline;
+    width:auto;
+}
+
+div.marquee span {
+
+}
+
+
+/*div.marquee {
+	
+    white-space: nowrap; 
+	overflow: hidden;
+	width: 325px;
+}
+
+div.marquee > div.marquee-text {
+    white-space:nowrap;
+    display:inline;
+    width:auto;
+}*/
+
+.navbar .navbar-inverse {
+	position: relative; 
+}
+
+.barContainer {
+	margin-left: 50px;	
 }
 
 .mood-buttons {
@@ -39,11 +107,13 @@ body {
 	text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 4px;
+    text-shadow: 2px 3px 0 rgba(0,0,0,.2);
 }
 
 
 .btn-player { 
     box-shadow: -4px 6px 10px rgba(0,0,0,.1);
+    background: rgba(0,0,0,.3);
 }
 
 .trackInfo {
@@ -74,7 +144,7 @@ body {
 
 .trackInfo small {
 	float: right;
-    margin-top: -20px;
+    margin-top: -18px;
     font-weight: 800;
 }
 
@@ -88,8 +158,7 @@ body {
 }
 
 #fingerLeft { 
-	animation: 
-	  bounce 1.0s linear 1;
+	
 }
 
 #fingerUp { 
@@ -98,6 +167,8 @@ body {
 
 .homePointer {
 	margin-top: 5px;
+	animation: 
+	  swipe 0.75s linear 1;
 }
 
 .moodNav {
@@ -114,24 +185,39 @@ body {
 	text-transform: uppercase;
 }
 
+@media(max-width:1200px) {
+	.trackInfo small { display: none; }
+}
+
 @media (max-width: 991px) {
 	.disabled { display: none; }
 	#fingerLeft { display: none; }
 	#fingerUp { display: inline-block; }
+	.audioControls { margin-top: 100px; }
 }
 
 @media (max-width: 768px) {
 	/*.trackInfo { padding-bottom: 10px; }*/
 	.trackInfo h4 { font-size: .8em; }
-	.trackInfo small { display: none; }
+	.audioControls { margin-top: 130px; }
 }
 
-@keyframes bounce {
+@keyframes swipe {
   0% {
     transform: translate(1500px, 0);    
   }
 
   100% {
   	transform: translate(0, 0);
+  }
+}
+
+@keyframes ticker {
+  0%, 100% {
+    transform: translate(0, 0);    
+  }
+
+  50% {
+  	transform: translate(50px, 0);
   }
 }
