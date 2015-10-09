@@ -7,32 +7,32 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/selectMood.html',
 			controller: 'MoodCtrl'
 		})
-		.when('/rock',
+		.when('/upbeat',
 		{
 			templateUrl: 'partials/rock.html',
 			controller: 'RockCtrl'
 		})
-		.when('/house',
+		.when('/chill',
 		{
 			templateUrl: 'partials/house.html',
 			controller: 'PlaylistCtrl'
 		})
-		.when('/hiphop',
+		.when('/edgy',
 		{
 			templateUrl: 'partials/hiphop.html',
 			controller: 'HiphopCtrl'
 		})
-		.when('/classical',
+		.when('/reflective',
 		{
 			templateUrl: 'partials/classical.html',
 			controller: 'ClassicalCtrl'
 		})
-		.when('/reggae',
+		.when('/happy',
 		{
 			templateUrl: 'partials/reggae.html',
 			controller: 'ReggaeCtrl'
 		})
-		.when('/ambient',
+		.when('/relaxed',
 		{
 			templateUrl: 'partials/ambient.html',
 			controller: 'AmbientCtrl'
