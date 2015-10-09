@@ -1,4 +1,6 @@
 <div ng-controller="HouseCtrl as vm">
-	<player></player>		
-	<playlist ng-repeat="track in vm.houseSongs"></playlist>
+	<player></player>
+	<div class="playlistContainer">
+		<playlist ng-repeat="track in vm.houseSongs"></playlist>
+	</div>
 </div>
