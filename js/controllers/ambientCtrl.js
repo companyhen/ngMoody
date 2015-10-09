@@ -1,32 +1,27 @@
-app.controller('AmbientCtrl', function($scope, soundService, $sce, $timeout, client_id) {
+app.controller('AmbientCtrl', function($scope, soundService, $sce, $timeout, client_id, $filter) {
 	var ctrl = this;
 
 	ctrl.songs = [];
 	ctrl.playerInfo = {};
 	ctrl.isStreaming = true;
-
-	ctrl.ambient = soundService.then(function(result){
-
-		result.forEach(function(song) {
-			ctrl.songs.push(song);
-		});
-
-		ctrl.playerInfo.total = result[5].data.length;
+	ctrl.ambientSongs = soundService.then(function(result){
+		ctrl.ambientSongs = result[5].data;
+		ctrl.playerInfo.total = ctrl.ambientSongs.length;
 		ctrl.playerInfo.song = 0;
 
-		ctrl.ambient = result[5].data;
-		ctrl.url = $sce.trustAsResourceUrl(result[5].data[ctrl.playerInfo.song].stream_url + client_id);
+		$filter('shuffle')(ctrl.ambientSongs);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.ambientSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.ambientSongs[ctrl.playerInfo.song].title;
 	});
 
 	ctrl.clickHandler = function (track, index) {
 		//ctrl.url = null;
 		$timeout(function(){
-			// console.log($sce.trustAsResourceUrl(track.stream_url + client_id));
 			ctrl.url = $sce.trustAsResourceUrl(track.stream_url + client_id);
-			console.log(track);
 			ctrl.isStreaming = true;
 		})
 		ctrl.playerInfo.song = index;
+		ctrl.currentSong = ctrl.ambientSongs[ctrl.playerInfo.song].title;
 	};
 
 	ctrl.play = function () {
@@ -46,7 +41,8 @@ app.controller('AmbientCtrl', function($scope, soundService, $sce, $timeout, cli
 		} else {
 		    ctrl.playerInfo.song -= 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[5].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.ambientSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.ambientSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 
@@ -57,7 +53,8 @@ app.controller('AmbientCtrl', function($scope, soundService, $sce, $timeout, cli
 		} else {
 		    ctrl.playerInfo.song += 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[5].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.ambientSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.ambientSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 

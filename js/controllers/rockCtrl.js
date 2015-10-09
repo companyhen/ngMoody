@@ -9,9 +9,9 @@ app.controller('RockCtrl', function($scope, soundService, $sce, $timeout, client
 		ctrl.playerInfo.total = ctrl.rockSongs.length;
 		ctrl.playerInfo.song = 0;
 
-
 		$filter('shuffle')(ctrl.rockSongs);
 		ctrl.url = $sce.trustAsResourceUrl(ctrl.rockSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.rockSongs[ctrl.playerInfo.song].title;
 	});
 
 
@@ -22,6 +22,7 @@ app.controller('RockCtrl', function($scope, soundService, $sce, $timeout, client
 			ctrl.isStreaming = true;
 		})
 		ctrl.playerInfo.song = index;
+		ctrl.currentSong = ctrl.rockSongs[ctrl.playerInfo.song].title;
 	};
 
 	ctrl.play = function () {
@@ -41,7 +42,8 @@ app.controller('RockCtrl', function($scope, soundService, $sce, $timeout, client
 		} else {
 		    ctrl.playerInfo.song -= 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[0].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.rockSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.rockSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 
@@ -52,9 +54,9 @@ app.controller('RockCtrl', function($scope, soundService, $sce, $timeout, client
 		} else {
 		    ctrl.playerInfo.song += 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[0].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.rockSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.rockSongs[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
-
 
 });
