@@ -37,6 +37,11 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/ambient.html',
 			controller: 'AmbientCtrl'
 		})
+		.when('/moodmixer',
+		{
+			templateUrl: 'partials/moodMixer.html',
+			controller: 'MoodMixerCtrl'
+		})
 		.otherwise(
 		{
 			redirectTo: '/404',

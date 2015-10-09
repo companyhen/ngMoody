@@ -1,0 +1,6 @@
+<div ng-controller="MoodMixerCtrl as vm">
+	<player></player>	
+	<playlist ng-repeat="track in vm.rockSongs"></playlist>
+	<playlist ng-repeat="track in vm.rockHouseSongs track by $index"></playlist>
+	<playlist ng-repeat="track in vm.houseSongs"></playlist>
+</div>
