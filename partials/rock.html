@@ -1,4 +1,6 @@
 <div ng-controller="RockCtrl as vm">
-	<player></player>	
-	<playlist ng-repeat="track in vm.rockSongs"></playlist>
+	<player></player>
+	<div class="playlistContainer">	
+		<playlist ng-repeat="track in vm.rockSongs"></playlist>
+	</div>
 </div>

@@ -1,4 +1,6 @@
 <div ng-controller="ClassicalCtrl as vm">
 	<player></player>
-	<playlist ng-repeat="track in vm.classicalSongs"></playlist>
+	<div class="playlistContainer">
+		<playlist ng-repeat="track in vm.classicalSongs"></playlist>
+	</div>
 </div>

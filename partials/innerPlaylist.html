@@ -1,6 +1,6 @@
 <div class="row"> <!-- house.html => ng-repeat="track in genre" -->
 	<div class="col-md-12">
-		<h2 class="hideGenre" ng-class='{showGenre:$first}'>{{track.genre}}</h2>
+		<!-- <h2 class="hideGenre" ng-class='{showGenre:$first}'>{{track.genre}}</h2> -->
 		<div class="col-md-12 trackInfo" ng-click="track.playback_count = track.playback_count + 1">
 			<a href="" ng-click="vm.clickHandler(track, $index)">
 				<!-- {{track.user.username}} --> 

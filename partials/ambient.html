@@ -1,4 +1,6 @@
 <div ng-controller="AmbientCtrl as vm">
 	<player></player>
-	<playlist ng-repeat="track in vm.ambientSongs"></playlist>
+	<div class="playlistContainer">
+		<playlist ng-repeat="track in vm.ambientSongs"></playlist>
+	</div>
 </div>
