@@ -12,7 +12,7 @@ app.controller('MoodMixerCtrl', function($scope, soundService, $sce, $timeout, c
 
 
 		$filter('shuffle')(ctrl.rockSongs);
-		// ctrl.url = $sce.trustAsResourceUrl(ctrl.rockSongs[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.rockSongs[ctrl.playerInfo.song].stream_url + client_id);
 	});
 
 		ctrl.songs = [];
@@ -39,7 +39,7 @@ app.controller('MoodMixerCtrl', function($scope, soundService, $sce, $timeout, c
 
 
 		$filter('shuffle')(ctrl.houseSongs);
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.houseSongs[ctrl.playerInfo.song].stream_url + client_id);
+		// ctrl.url = $sce.trustAsResourceUrl(ctrl.houseSongs[ctrl.playerInfo.song].stream_url + client_id);
 	});
 
 

@@ -1,0 +1,30 @@
+<div>
+	<span>I'm feeling . . .</span>
+
+	<select name="Mood1"> 
+	  <option value="upbeat" >Upbeat</option>
+	  <option value="chill" >Chill</option>
+	  <option value="edgy" >Edgy</option>
+	  <option value="reflextive" >Reflextive</option>
+	  <option value="happy" >Happy</option>
+	  <option value="relax" >Relax</option>
+	</select>
+</div>
+
+<div>
+	<span>I want to feel . . .</span>
+
+	<select name="Mood2"> 
+	  <option value="upbeat" >Upbeat</option>
+	  <option value="chill" >Chill</option>
+	  <option value="edgy" >Edgy</option>
+	  <option value="reflextive" >Reflextive</option>
+	  <option value="happy" >Happy</option>
+	  <option value="relax" >Relax</option>
+	</select>
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-12 col-lg-12 mood">
+	<a class="btn btn-default" ng-class="{ active: vm.isActive('/moodmixer')}" href="#/moodmixer">Mix My Moods
+	</a>
+</div>
