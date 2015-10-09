@@ -14,7 +14,6 @@ app.controller('HouseCtrl', function($scope, soundService, $sce, $timeout, clien
 		ctrl.currentSong = ctrl.houseSongs[ctrl.playerInfo.song].title;
 	});
 
-
 	ctrl.clickHandler = function (track, index) {
 		//ctrl.url = null;
 		$timeout(function(){
