@@ -5,7 +5,7 @@
 			<a href="" ng-click="vm.clickHandler(track, $index)">
 				<!-- {{track.user.username}} --> 
 			    <h4 class="caps">{{track.title}}</h4>
-			    <small>Plays: {{ track.playback_count | number }}</small>
+			    <small>{{ track.duration | millSecondsToTimeString }}</small>
 			</a>
 		</div>
 	</div>

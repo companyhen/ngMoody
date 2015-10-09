@@ -35,18 +35,53 @@ body {
 }
 
 .audioControls {
-	margin: 8px;
-	margin-left: 12px;
+	width: 238px;
+    background: rgba(0,0,0,.2);
+    padding: 12px;
 }
 
 .progress {
 	position: absolute;
 	width: 150px;
-    top: 15px;
-    left: 185px;
+    top: 26px;
+    left: 198px;
     height: 8px;
     box-shadow: -3px 2px 0px rgba(0,0,0,.15);
 }
+
+div.marquee {
+    white-space:no-wrap;
+    overflow:hidden;
+    text-overflow: ellipsis; 
+    width: 220px;
+    margin-top: 7px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: .85em;
+}
+div.marquee > div.marquee-text {
+    white-space:nowrap;
+    display:inline;
+    width:auto;
+}
+
+div.marquee span {
+
+}
+
+
+/*div.marquee {
+	
+    white-space: nowrap; 
+	overflow: hidden;
+	width: 325px;
+}
+
+div.marquee > div.marquee-text {
+    white-space:nowrap;
+    display:inline;
+    width:auto;
+}*/
 
 .navbar .navbar-inverse {
 	position: relative; 
@@ -72,6 +107,7 @@ body {
 	text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 4px;
+    text-shadow: 2px 3px 0 rgba(0,0,0,.2);
 }
 
 
@@ -108,7 +144,7 @@ body {
 
 .trackInfo small {
 	float: right;
-    margin-top: -20px;
+    margin-top: -18px;
     font-weight: 800;
 }
 
@@ -157,11 +193,13 @@ body {
 	.disabled { display: none; }
 	#fingerLeft { display: none; }
 	#fingerUp { display: inline-block; }
+	.audioControls { margin-top: 100px; }
 }
 
 @media (max-width: 768px) {
 	/*.trackInfo { padding-bottom: 10px; }*/
 	.trackInfo h4 { font-size: .8em; }
+	.audioControls { margin-top: 130px; }
 }
 
 @keyframes swipe {
@@ -171,5 +209,15 @@ body {
 
   100% {
   	transform: translate(0, 0);
+  }
+}
+
+@keyframes ticker {
+  0%, 100% {
+    transform: translate(0, 0);    
+  }
+
+  50% {
+  	transform: translate(50px, 0);
   }
 }
