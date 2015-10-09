@@ -1,7 +1,6 @@
-<div>
-	<span>I'm feeling . . .</span>
-
-	<select name="Mood1"> 
+<div class="form-group">
+	<label for="select" class="control-label">I'm feeling...</label>
+	<select class="form-control" name="Mood1"> 
 	  <option value="upbeat" >Upbeat</option>
 	  <option value="chill" >Chill</option>
 	  <option value="edgy" >Edgy</option>
@@ -11,10 +10,9 @@
 	</select>
 </div>
 
-<div>
-	<span>I want to feel . . .</span>
-
-	<select name="Mood2"> 
+<div class="form-group">
+	<label for="select" class="control-label">I'm want to feel...</label>
+	<select class="form-control" name="Mood2"> 
 	  <option value="upbeat" >Upbeat</option>
 	  <option value="chill" >Chill</option>
 	  <option value="edgy" >Edgy</option>
@@ -24,7 +22,8 @@
 	</select>
 </div>
 
-<div class="col-xs-6 col-sm-4 col-md-12 col-lg-12 mood">
-	<a class="btn btn-default" ng-class="{ active: vm.isActive('/moodmixer')}" href="#/moodmixer">Mix My Moods
-	</a>
+<div class="form-group">
+	<a class="btn btn-default" ng-class="{ active: vm.isActive('/moodmixer')}" href="#/moodmixer">Mix My Moods</a>
 </div>
+
+
