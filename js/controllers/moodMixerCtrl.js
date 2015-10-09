@@ -1,6 +1,7 @@
 app.controller('MoodMixerCtrl', function($scope, soundService, $sce, $timeout, client_id, $filter) {
 	var ctrl = this;
 
+
 	ctrl.songs = [];
 	ctrl.playerInfo = {};
 	ctrl.isStreaming = true;
