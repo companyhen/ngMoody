@@ -26,7 +26,8 @@ app.service('soundService', function ($http, $q, client_id) {
 		for(i=0; i<genres.length; i++){
 			var genre = genres[i].name;
 			var moods = genres[i].moods;
-			genreData[i] = $http.get('http://api.soundcloud.com/tracks.json' + client_id + '&q=' + moods + '&genres=' + genre + '&limit=25&duration[from]=100000&duration[to]=400000&streamable=true');
+			//genreData[i] = $http.get('http://api.soundcloud.com/tracks.json' + client_id + '&q=' + moods + '&genres=' + genre + '&limit=25&duration[from]=100000&duration[to]=400000&created_at[from]=2015-01-01 00:00:00&streamable=true');
+			genreData[i] = $http.get('http://api.soundcloud.com/tracks.json' + client_id + '&q=' + moods + '&genres=' + genre + '&limit=25&streamable=true');
 		}
 		return $q.all(genreData);
 	}
