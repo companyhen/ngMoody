@@ -1,7 +1,6 @@
 app.controller('MoodMixerCtrl', function($scope, soundService, $sce, $timeout, client_id, $filter) {
 	var ctrl = this;
 
-
 	ctrl.songs = [];
 	ctrl.playerInfo = {};
 	ctrl.isStreaming = true;
@@ -9,7 +8,6 @@ app.controller('MoodMixerCtrl', function($scope, soundService, $sce, $timeout, c
 		ctrl.rockSongs = result[0].data.slice(0, 3);
 		ctrl.playerInfo.total = ctrl.rockSongs.length;
 		ctrl.playerInfo.song = 0;
-
 
 		$filter('shuffle')(ctrl.rockSongs);
 		ctrl.url = $sce.trustAsResourceUrl(ctrl.rockSongs[ctrl.playerInfo.song].stream_url + client_id);

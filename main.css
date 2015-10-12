@@ -176,22 +176,9 @@ div.marquee > div.marquee-text {
 	letter-spacing: 2px; 
 }
 
-.finger {
-	margin-left: 10px;
-}
-
-#fingerLeft { 
-	
-}
-
-#fingerUp { 
-	display: none; 
-}
 
 .homePointer {
 	margin-top: 5px;
-	animation: 
-	  swipe 0.75s linear 1;
 }
 
 .moodNav {
@@ -206,6 +193,56 @@ div.marquee > div.marquee-text {
 
 .leftNav {
 	text-transform: uppercase;
+}
+
+.innerHome {
+	background: rgba(255,255,255,.25);
+	margin: 10px;
+	padding: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	color: #fff;
+	font-size: 1.5em;
+}
+
+.innerHome img {
+	margin: 0 auto;
+	width: 32px;
+	float: left;
+}
+
+.homeMoods h1 {
+	font-size: 3em;
+	margin: 15px 0;
+	font-weight: 500;
+}
+
+.homeMoods p {
+	margin-bottom: 25px;
+	color: rgba(255,255,255,.7);
+}
+
+.homeMoods select {
+	font-size: 1.5em;
+	font-weight: 500;
+	height: 50px;
+}
+
+#mixMoods {
+	height: 50px;
+    padding-top: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Hover Colors */
+
+#upbeat:hover {
+	background: orange;
+}
+#bouncy:hover {
+	background: yellow;
 }
 
 @media(max-width:1250px) {

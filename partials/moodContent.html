@@ -1,14 +1,41 @@
 <div class="homePointer">
-	<img class="finger" id="fingerLeft" src="img/finger.png" alt="Choose a Mood!">
-	<img class="finger" id="fingerUp" src="img/up.png" alt="Choose a Mood!">
-	<h3 class="chooseMood">
-		<span>Choose a mood!</span>
-	</h3>
-	<div
-	  class="fb-like"
-	  data-share="true"
-	  data-width="450"
-	  data-show-faces="true">
+	<div class="row">
+		<div class="col-md-12 homeMoods">
+		  	<h1>What's on your mood?</h1>
+		  	<p>Pick out how you feel now, how you want to feel, and start listening to some great music!</p>
+			<div class="col-md-5">
+				<div class="form-group">
+					<select class="form-control" name="Mood1"> 
+					  <option selected>I'm feeling...</option>
+					  <option value="upbeat">Upbeat</option>
+					  <option value="bouncy">Bouncy</option>
+					  <option value="edgy">Edgy</option>
+					  <option value="reflextive">Reflextive</option>
+					  <option value="happy">Happy</option>
+					  <option value="relaxed">Relaxed</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="col-md-5">
+				<div class="form-group">
+					<select class="form-control" name="Mood2">
+					  <option selected>I want to feel...</option> 
+					  <option value="upbeat">Upbeat</option>
+					  <option value="bouncy">Bouncy</option>
+					  <option value="edgy">Edgy</option>
+					  <option value="reflextive">Reflextive</option>
+					  <option value="happy">Happy</option>
+					  <option value="relaxed">Relaxed</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<a id="mixMoods" class="btn btn-primary" ng-class="{ active: vm.isActive('/moodmixer')}" href="#/moodmixer">Mix!</a>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
