@@ -69,28 +69,33 @@ footer {
     box-shadow: -3px 2px 0px rgba(0,0,0,.15);
 }
 
-div.marquee {
-    white-space:no-wrap;
-    overflow:hidden;
-    text-overflow: ellipsis; 
-    width: 220px;
-    margin-top: 7px;
-    text-transform: uppercase;
-    letter-spacing: 6px;
-    font-size: .85em;
-}
-div.marquee > div.marquee-text {
-    white-space:nowrap;
-    display:inline;
-    width:auto;
+.marquee {
+  height: 25px;
+  width: 420px;
+
+  overflow: hidden;
+  position: relative;
 }
 
-div.marquee span {
+.marquee div {
+  display: block;
+  width: 200%;
+  height: 30px;
 
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 7s linear infinite;
 }
 
-.playlistContainer{
-	margin-top: 20px;
+.marquee span {
+  float: left;
+  width: 50%;
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
 }
 
 /*div.marquee {
