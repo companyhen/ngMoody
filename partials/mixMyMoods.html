@@ -1,27 +1,43 @@
-<div class="form-group">
-	<label for="select" class="control-label">I'm feeling...</label>
-	<select class="form-control" name="Mood1"> 
-	  <option value="upbeat">Upbeat</option>
-	  <option value="bouncy">Bouncy</option>
-	  <option value="edgy">Edgy</option>
-	  <option value="reflextive">Reflextive</option>
-	  <option value="happy">Happy</option>
-	  <option value="relaxed">Relaxed</option>
-	</select>
-</div>
+<div ng-controller="NewMoodMixerCtrl as vm">
+	<div class="form-group">
+		<label for="select" class="control-label">I'm feeling...</label>
+		<select class="form-control1" name="Mood1" ng-model="vm.currentMood"> 
+		  <option value="0" selected="selected">Upbeat</option>
+		  <option value="1">Bouncy</option>
+		  <option value="2">Edgy</option>
+		  <option value="3">Reflective</option>
+		  <option value="4">Happy</option>
+		  <option value="5">Relaxed</option>
+		</select>
+	</div>
 
-<div class="form-group">
-	<label for="select" class="control-label">I'm want to feel...</label>
-	<select class="form-control" name="Mood2"> 
-	  <option value="upbeat">Upbeat</option>
-	  <option value="bouncy">Bouncy</option>
-	  <option value="edgy">Edgy</option>
-	  <option value="reflextive">Reflextive</option>
-	  <option value="happy">Happy</option>
-	  <option value="relaxed" selected="selected">Relaxed</option>
-	</select>
-</div>
+	<div class="form-group">
+		<label for="select" class="control-label">I'm want to feel...</label>
+		<select class="form-control2" name="Mood2" ng-model="vm.endMood"> 
+		  <option value="0">Upbeat</option>
+		  <option value="1">Bouncy</option>
+		  <option value="2">Edgy</option>
+		  <option value="3">Reflective</option>
+		  <option value="4">Happy</option>
+		  <option value="5" selected="selected">Relaxed</option>
+		</select>
+	</div>
 
-<div class="form-group">
-	<a class="btn btn-primary" ng-class="{ active: vm.isActive('/moodmixer')}" href="#/moodmixer">Mix My Moods</a>
+	<div class="form-group">
+		<a class="btn btn-primary" ng-class="{ active: vm.isActive('/moodmixer')}" ng-click="vm.showCurrentMood()">Mix My Moods</a>
+	</div>
+
+	<player></player>
+	<div class="playlistContainer">
+		<playlist ng-repeat="track in vm.mood1"></playlist>
+		<playlist ng-repeat="track in vm.mixedMood12 track by $index"></playlist>
+		<playlist ng-repeat="track in vm.mood2"></playlist>
+	</div>
+
 </div>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> ce39bf550b5b5962664f8ad10bf6eff508227339

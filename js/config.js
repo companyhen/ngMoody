@@ -40,7 +40,7 @@ app.config(function($routeProvider){
 		.when('/moodmixer',
 		{
 			templateUrl: 'partials/moodMixer.html',
-			controller: 'MoodMixerCtrl'
+			controller: 'NewMoodMixerCtrl'
 		})
 		.when('/mixmymood',
 		{
