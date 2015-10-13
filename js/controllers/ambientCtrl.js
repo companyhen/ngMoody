@@ -58,10 +58,8 @@ app.controller('AmbientCtrl', function($scope, soundService, $sce, $timeout, cli
 		ctrl.isStreaming = true;
 	};
 
-	ctrl.millisToMinutesAndSeconds = function (millis) {
-		var minutes = Math.floor(ctrl.ambientSongs[ctrl.playerInfo.song].duration / 60000);
-		var seconds = ((ctrl.ambientSongs[ctrl.playerInfo.song].duration % 60000) / 1000).toFixed(0);
-		return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
-	};
+	ctrl.currentTime = function () {
+		console.log(document.getElementById('audio').currentTime);
+	}
 
 });
