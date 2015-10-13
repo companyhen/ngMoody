@@ -12,21 +12,7 @@
 	<header>
 		<nav class="navbar navbar-inverse" role="navigation">
 			<a class="navbar-brand" href="#/">Moody</a>
-			<ul class="nav navbar-nav">
-				<!-- <li class="active">
-					<a href="#/">Change my mood</a>
-				</li> -->
-				<li ng-controller="PlaylistCtrl as vm">
-					<!-- <player></player> -->
-				</li>
-				<!-- <li>
-					<a href="#">Link</a>
-				</li> -->
-			</ul>
-			<ul ng-if="!vm.isAuthenticated()" class="nav navbar-nav navbar-right container-fluid">
-				<!-- <li>
-					<a href="" ng-click="vm.authenticate('facebook')">Sign in with Facebook</a>
-				</li> -->
+			<ul class="nav navbar-nav navbar-right container-fluid">
 				<li>
 					<a href="#/suggest">Suggest a mood</a>
 				</li>
@@ -34,12 +20,9 @@
 					<a href="">About</a>
 				</li>
 			</ul>
-			<ul ng-if="vm.isAuthenticated()" class="nav navbar-nav navbar-right container-fluid">
-			  <li><a href="/logout">Logout</a></li>
-			</ul>
 		</nav>
 	</header>
-	
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-2 moodNav" ng-controller="NavController as vm">

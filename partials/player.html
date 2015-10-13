@@ -1,7 +1,7 @@
 <div class="row headContainer">
 	<div class="col-md-12">
-		<div class="audioControls">
-			<span ng-show="vm.url" ng-if="vm.url">
+		<div ng-show="vm.url" ng-if="vm.url" class="audioControls">
+			<span>
 				<audio id="audio" ng-src="{{vm.url}}" autoplay ended>
 				Your browser does not support the audio element.
 				</audio>
