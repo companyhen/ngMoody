@@ -44,7 +44,8 @@ app.directive('ended', function(){
 		link: function($scope, iElm, iAttrs, controller) {
 			var audio = document.getElementById("audio");
 			audio.onended = function() {
-				alert("Please select next track!");
+				$scope.next();
+				alert ("check to see if this moved to the next song");
 			};
 			// 
 		}
