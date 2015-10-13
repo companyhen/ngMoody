@@ -212,18 +212,13 @@ div.marquee > div.marquee-text {
 	float: left;
 }
 
-.homeMoods h1 {
+.homeContent h1 {
 	font-size: 3em;
 	margin: 15px 0;
 	font-weight: 500;
 }
 
-.homeMoods p {
-	margin-bottom: 25px;
-	color: rgba(255,255,255,.7);
-}
-
-.homeMoods select {
+.homeContent select {
 	font-size: 1.5em;
 	font-weight: 500;
 	height: 50px;

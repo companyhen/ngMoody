@@ -1,8 +1,7 @@
 <div ng-controller="NewMoodMixerCtrl as vm">
 	<div class="row">
-		<div class="col-md-12">
-			<h1>How do you want to feel?</h1>
-			<p>Musicians from the beginning of time have been there to express the mood and the musical feelings in the air for whatever's going on in that particular culture. It's the greatest joy as a musician to be able to translate that, be part of something and watch the scenery around you.</p>
+		<div class="col-md-12 homeContent">
+			<h1>Music can change your mood instantly.</h1>
 			<div class="col-md-5">
 				<div class="form-group">
 					<select class="form-control" name="Mood1" ng-model="vm.currentMood"> 
@@ -32,10 +31,10 @@
 			</div>
 
 			<div class="form-group">
-				<a class="btn btn-primary" ng-class="{ active: vm.isActive('/moodmixer')}" ng-click="vm.showCurrentMood()">Mix My Moods</a>
+				<a id="mixMoods" class="btn btn-primary" ng-class="{ active: vm.isActive('/moodmixer')}" ng-click="vm.showCurrentMood()">Mix!</a>
 			</div>
 
-			<player></player>
+			<div player></div>
 			<div class="playlistContainer">
 				<playlist ng-repeat="track in vm.mood1"></playlist>
 				<playlist ng-repeat="track in vm.mixedMood12 track by $index"></playlist>
