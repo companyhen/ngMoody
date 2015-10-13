@@ -52,6 +52,11 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/testGenre.html',
 			controller: 'PlaylistCtrl'
 		})
+		.when('/suggest',
+		{
+			templateUrl: 'partials/suggestMood.html',
+			controller: 'MoodCtrl'
+		})
 		.otherwise(
 		{
 			redirectTo: '/404',
