@@ -15,6 +15,7 @@ ctrl.showCurrentMood = function(){
 
 		$filter('shuffle')(ctrl.mood1);
 		ctrl.url = $sce.trustAsResourceUrl(ctrl.mood1[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.mood1[ctrl.playerInfo.song].title;
 	});
 
 		ctrl.songs = [];
@@ -55,6 +56,7 @@ console.log("current mood" + ctrl.currentMood + " " + ctrl.mood1 + "new mood" + 
 			ctrl.isStreaming = true;
 		})
 		ctrl.playerInfo.song = index;
+		ctrl.currentSong = ctrl.mood1[ctrl.playerInfo.song].title;
 	};
 
 	ctrl.play = function () {

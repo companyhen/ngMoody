@@ -40,9 +40,27 @@ footer {
 
 .mood .btn {
 	width: 100%;
-	margin-bottom: 1px;
+	margin-bottom: 5px;
 	letter-spacing: 6px;
-	box-shadow: -2px 4px 10px rgba(0,0,0,.1);
+	box-shadow: -2px 4px 10px rgba(0,0,0,.6);
+	border-radius: 10px;
+}
+
+.mood .btn:hover {
+	transform: translate(-1px,3px);
+}
+
+.form-group .btn-primary {
+	box-shadow: -2px 4px 10px rgba(0,0,0,.6);
+	border-radius: 10px;
+}
+
+.form-group .btn-primary:hover {
+	transform: translate(-1px,3px);	
+}
+
+select option {
+	cursor: pointer;
 }
 
 .mood .disabled {
