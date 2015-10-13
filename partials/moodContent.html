@@ -1,31 +1,46 @@
-<div class="homePointer">
-	<img class="finger" id="fingerLeft" src="img/finger.png" alt="Choose a Mood!">
-	<img class="finger" id="fingerUp" src="img/up.png" alt="Choose a Mood!">
-	<h3 class="chooseMood">
-		<span>Choose a mood!</span>
-	</h3>
-	<div
-	  class="fb-like"
-	  data-share="true"
-	  data-width="450"
-	  data-show-faces="true">
-	</div>
-</div>
+<div ng-controller="NewMoodMixerCtrl as vm">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>How do you want to feel?</h1>
+			<p>Musicians from the beginning of time have been there to express the mood and the musical feelings in the air for whatever's going on in that particular culture. It's the greatest joy as a musician to be able to translate that, be part of something and watch the scenery around you.</p>
+			<div class="col-md-5">
+				<div class="form-group">
+					<select class="form-control" name="Mood1" ng-model="vm.currentMood"> 
+					  <option selected disabled value=''>I'm feeling...</option>
+					  <option value="0">Upbeat</option>
+					  <option value="1">Bouncy</option>
+					  <option value="2">Edgy</option>
+					  <option value="3">Reflective</option>
+					  <option value="4">Happy</option>
+					  <option value="5">Relaxed</option>
+					</select>
+				</div>
+			</div>
 
-<!-- <div class="form-group">
-	<form class="form-inline" ng-submit="vm.getUser()">
-		<label>Search for tracks by username</label>
-		<input type="text" class="form-control" ng-model="vm.username">
-		<button class="btn btn-default">Search</button>
-	</form>
-</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<select class="form-control" name="Mood2" ng-model="vm.endMood"> 
+					  <option selected disabled value=''>I want to feel...</option>
+					  <option value="0">Upbeat</option>
+					  <option value="1">Bouncy</option>
+					  <option value="2">Edgy</option>
+					  <option value="3">Reflective</option>
+					  <option value="4">Happy</option>
+					  <option value="5">Relaxed</option>
+					</select>
+				</div>
+			</div>
 
-<div ng-bind-html="iFrame"></div>
-<div class="row">
-	<div ng-repeat="song in vm.userTracks">
-		<div class="col-md-1 col-sm-2">
-			<p ng-click="play(song.permalink_url)">{{song.tag_list}}</p>
-			<img src="{{song.artwork_url}}" ng-click="play(song.permalink_url)" ng-if="song.artwork_url">
+			<div class="form-group">
+				<a class="btn btn-primary" ng-class="{ active: vm.isActive('/moodmixer')}" ng-click="vm.showCurrentMood()">Mix My Moods</a>
+			</div>
+
+			<player></player>
+			<div class="playlistContainer">
+				<playlist ng-repeat="track in vm.mood1"></playlist>
+				<playlist ng-repeat="track in vm.mixedMood12 track by $index"></playlist>
+				<playlist ng-repeat="track in vm.mood2"></playlist>
+			</div>
 		</div>
 	</div>
-</div> -->
+</div>
