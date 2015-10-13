@@ -216,6 +216,7 @@ div.marquee > div.marquee-text {
 	font-size: 3em;
 	margin: 15px 0;
 	font-weight: 500;
+	margin-bottom: 25px;
 }
 
 .homeContent select {
