@@ -325,7 +325,7 @@ div.marquee > div.marquee-text {
 }
 
 @media(max-width:1090px) {
-
+	.homeMoodContainer { margin-top: 145px; }
 }
 
 @media (max-width: 991px) {
@@ -339,6 +339,7 @@ div.marquee > div.marquee-text {
 	/*.trackInfo { padding-bottom: 10px; }*/
 	.trackInfo h4 { font-size: .8em; }
 	.audioControls { margin-top: 225px; }
+	.homeMoodContainer { margin-top: 200px; }
 }
 
 @keyframes swipe {
