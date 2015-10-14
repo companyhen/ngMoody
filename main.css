@@ -200,13 +200,18 @@ div.marquee > div.marquee-text {
 
 .btn-player { 
     box-shadow: -4px 6px 10px rgba(0,0,0,.1);
-    background: rgba(0,0,0,.3);
+    background: rgba(0,0,0,.5);
+}
+
+.btn-player:hover {
+	background: rgba(255,255,255,.25);
+	color: #fff;
 }
 
 .trackInfo {
 	background: rgba(255,255,255,.15);
 	margin-bottom: 1px;
-	padding: 18px;
+	padding: 16px;
 	box-shadow: -5px 12px 10px rgba(0,0,0,.08);
 }
 
@@ -304,6 +309,10 @@ div.marquee > div.marquee-text {
 
 .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
 	background: rgba(255,255,255,.5);
+}
+
+.glyphicon:hover {
+	color: #fff;
 }
 
 @media(max-width:1250px) {
