@@ -324,15 +324,12 @@ div.marquee > div.marquee-text {
 	.moodNav a { font-size: .75em; letter-spacing: 0; }
 }
 
-@media(max-width:1090px) {
-	.homeMoodContainer { margin-top: 145px; }
-}
-
 @media (max-width: 991px) {
 	.disabled { display: none; }
 	#fingerLeft { display: none; }
 	#fingerUp { display: inline-block; }
 	.audioControls { margin-top: 160px; }
+	.homeMoodContainer { margin-top: 145px; }
 }
 
 @media (max-width: 768px) {
