@@ -45,7 +45,7 @@ footer {
 .mood .btn {
 	width: 100%;
 	margin-bottom: 2px;
-	letter-spacing: 6px;
+	letter-spacing: 4px;
 	box-shadow: -2px 2px 5px rgba(0,0,0,.2);
 	background-color: rgba(255,255,255,.2);
 	/*border-radius: 10px;*/
@@ -72,13 +72,13 @@ form {
 }
 
 form .btn {
-	box-shadow: -2px 4px 10px rgba(0,0,0,.6);
-	border-radius: 10px;
+	box-shadow: -2px 4px 10px rgba(0,0,0,.2);
+	border-radius: 5px;
 }
 
 form .btn:hover {
-	transform: translate(-1px,3px);
-	box-shadow: -1px 1px 10px rgba(0,0,0,.6);
+	/*transform: translate(-1px,3px);*/
+	box-shadow: -1px 1px 10px rgba(0,0,0,.2);
 }
 
 option {
@@ -200,7 +200,7 @@ div.marquee > div.marquee-text {
 
 .btn-player { 
     box-shadow: -4px 6px 10px rgba(0,0,0,.1);
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.35);
 }
 
 .btn-player:hover {
@@ -216,7 +216,7 @@ div.marquee > div.marquee-text {
 }
 
 .trackInfo:hover {
-	background: rgba(255,255,255,.2);
+	background: rgba(255,255,255,.4);
 }
 
 .trackInfo h4 {
@@ -315,23 +315,30 @@ div.marquee > div.marquee-text {
 	color: #fff;
 }
 
+.navbar-nav > li:hover {
+	background: rgba(0,0,0,.5);
+}
+
 @media(max-width:1250px) {
 	.trackInfo small { display: none; }
 	.moodNav a { font-size: .75em; letter-spacing: 0; }
 }
 
+@media(max-width:1090px) {
+
+}
 
 @media (max-width: 991px) {
 	.disabled { display: none; }
 	#fingerLeft { display: none; }
 	#fingerUp { display: inline-block; }
-	.audioControls { margin-top: 100px; }
+	.audioControls { margin-top: 160px; }
 }
 
 @media (max-width: 768px) {
 	/*.trackInfo { padding-bottom: 10px; }*/
 	.trackInfo h4 { font-size: .8em; }
-	.audioControls { margin-top: 130px; }
+	.audioControls { margin-top: 225px; }
 }
 
 @keyframes swipe {
@@ -364,3 +371,4 @@ div.marquee > div.marquee-text {
 
 body { -webkit-animation: pulse 60s infinite alternate; }
 .navbar-inverse, footer { background-color: rgba(0,0,0,.4); }
+a, button, .trackInfo { transition: background-color .5s ease; }
