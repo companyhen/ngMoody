@@ -4,8 +4,8 @@
 	  <input class="form-control" type="text" name="Suggest a mood" placeholder="Suggest a mood" ng-model="vm.text"><br>
 	  <input class="btn btn-primary" type="submit" value="Submit" ng-click="showResponse=true">
 	</form> 
-	<div ng-show="showResponse">
+	<form ng-show="showResponse">
 		<p> Your mood has been submitted. Thank you.</p>
 		<a href="#/"><input class="btn btn-primary" value="OK"></a>
-	</div>	
+	</form>	
 </div>
