@@ -1,12 +1,18 @@
 app.service('soundService', function ($http, $q, client_id) {
 
 	var genres = [
-		{name: "rock", moods: ""}, // 0
+		{name: "alternative rock", moods: ""}, // 0
 		{name: "house", moods: ""}, // 1
 		{name: "trap", moods: ""}, // 2
 		{name: "classical", moods: ""}, // 3
-		{name: "reggae", moods: ""}, // 4
-		{name: "ambient", moods: ""} // 5
+		{name: "dub", moods: ""}, // 4
+		{name: "ambient", moods: ""}, // 5
+		{name: "lounge", moods: ""}, // 6
+		{name: "future funk", moods: ""}, // 7
+		{name: "neo soul", moods: ""}, // 8
+		{name: "psychedelic", moods: ""}, // 9
+		{name: "dark ambient", moods: ""}, // 10
+		{name: "drone", moods: ""} // 11
 	];
 
 	var genreData = [];

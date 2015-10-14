@@ -22,7 +22,7 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/hiphop.html',
 			controller: 'HiphopCtrl'
 		})
-		.when('/reflective',
+		.when('/introspective',
 		{
 			templateUrl: 'partials/classical.html',
 			controller: 'ClassicalCtrl'
@@ -32,10 +32,40 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/reggae.html',
 			controller: 'ReggaeCtrl'
 		})
-		.when('/relaxed',
+		.when('/mellow',
 		{
 			templateUrl: 'partials/ambient.html',
 			controller: 'AmbientCtrl'
+		})
+		.when('/elegant',
+		{
+			templateUrl: 'partials/jazz.html',
+			controller: 'JazzCtrl'
+		})
+		.when('/funky',
+		{
+			templateUrl: 'partials/funk.html',
+			controller: 'FunkCtrl'
+		})
+		.when('/romantic',
+		{
+			templateUrl: 'partials/romantic.html',
+			controller: 'RomanticCtrl'
+		})
+		.when('/trippy',
+		{
+			templateUrl: 'partials/trippy.html',
+			controller: 'TrippyCtrl'
+		})
+		.when('/dark',
+		{
+			templateUrl: 'partials/dark.html',
+			controller: 'DarkCtrl'
+		})
+		.when('/strange',
+		{
+			templateUrl: 'partials/strange.html',
+			controller: 'StrangeCtrl'
 		})
 		.when('/moodmixer',
 		{
