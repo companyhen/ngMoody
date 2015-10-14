@@ -40,23 +40,24 @@ footer {
 
 .mood .btn {
 	width: 100%;
-	margin-bottom: 5px;
+	margin-bottom: 1px;
 	letter-spacing: 6px;
-	box-shadow: -2px 4px 10px rgba(0,0,0,.6);
-	border-radius: 10px;
+	box-shadow: -2px 4px 10px rgba(0,0,0,.2);
+	background-color: rgba(255,255,255,.2);
+	/*border-radius: 10px;*/
 }
 
 .mood .btn:hover {
-	transform: translate(-1px,3px);
+	/*transform: translate(-1px,3px);*/
 }
 
 .form-group .btn-primary {
 	box-shadow: -2px 4px 10px rgba(0,0,0,.6);
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .form-group .btn-primary:hover {
-	transform: translate(-1px,3px);	
+	transform: translate(-1px,0px);	
 }
 
 select option {
@@ -88,22 +89,36 @@ select option {
     box-shadow: -3px 2px 0px rgba(0,0,0,.15);
 }
 
-.marquee {
-  height: 25px;
-  width: 215px;
+.homeMoodContainer {
+    animation: fadein 2s;
+}
 
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+.marquee {
+  height: 15px;
+  width: 215px;
   overflow: hidden;
   position: relative;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: .9em;
 }
 
 .marquee div {
   display: block;
   width: 200%;
   height: 30px;
-
   position: absolute;
   overflow: hidden;
-
   animation: marquee 8s linear infinite;
 }
 
@@ -174,13 +189,14 @@ div.marquee > div.marquee-text {
 	background: rgba(255,255,255,.2);
 }
 
-.trackInfo h4 { 
+.trackInfo h4 {
+	color: rgba(255,255,255,.75);
 	margin: 0;
 	white-space: nowrap; 
 	overflow: hidden;
   	text-overflow: ellipsis; 
   	letter-spacing: 6px;
-  	font-size: 1.05em;
+  	font-size: 1.2em;
     text-transform: uppercase;
     font-weight: 500;
 }
@@ -190,6 +206,7 @@ div.marquee > div.marquee-text {
 }
 
 .trackInfo small {
+	color: rgb(255, 153, 86);
 	float: right;
     margin-top: -18px;
     font-weight: 800;
@@ -300,6 +317,17 @@ div.marquee > div.marquee-text {
   }
 
   50% {
-  	transform: translate(50px, 0);
+  	transform: translate(10px, 0);
   }
 }
+
+@-webkit-keyframes pulse { 
+	0% {background-color: #2b3e50;} 
+	25% {background-color: #4A2B50;} 
+	50% {background-color: #6B2525;} 
+	75% {background-color: #594B23;} 
+	100% {background-color: #2C5923;} 
+} 
+
+body { -webkit-animation: pulse 60s infinite alternate; }
+.navbar-inverse, footer { background-color: rgba(0,0,0,.4); }
