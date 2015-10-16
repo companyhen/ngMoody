@@ -319,6 +319,10 @@ div.marquee > div.marquee-text {
 	background: rgba(0,0,0,.5);
 }
 
+.navbar-right {
+	margin-right: 0;
+}
+
 @media(max-width:1250px) {
 	.trackInfo small { display: none; }
 	.moodNav a { font-size: .75em; letter-spacing: 0; }
