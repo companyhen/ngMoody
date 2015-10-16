@@ -11,41 +11,27 @@ ctrl.showCurrentMood = function(){
 		ctrl.mood1 = result[ctrl.currentMood].data.slice(0, 3);
 		ctrl.playerInfo.total = ctrl.mood1.length;
 		ctrl.playerInfo.song = 0;
-
-
 		$filter('shuffle')(ctrl.mood1);
+			ctrl.mixedMood12 = soundService.then(function(result){
+				ctrl.mixedMood12 = result[ctrl.currentMood].data.slice(3, 6);
+				Array.prototype.push.apply(ctrl.mixedMood12, result[ctrl.endMood].data.slice(6, 9));
+				ctrl.playerInfo.total = ctrl.mixedMood12.length;
+				ctrl.playerInfo.song = 0;
+				$filter('shuffle')(ctrl.mixedMood12);
+				Array.prototype.push.apply(ctrl.mood1, ctrl.mixedMood12);
+				// 	ctrl.url = $sce.trustAsResourceUrl(ctrl.rockHouseSongs[ctrl.playerInfo.song].stream_url + client_id);
+			});
+			ctrl.mood2 = soundService.then(function(result){
+				ctrl.mood2 = result[ctrl.endMood].data.slice(9, 12);
+				ctrl.playerInfo.total = ctrl.mood2.length;
+				ctrl.playerInfo.song = 0;
+				$filter('shuffle')(ctrl.mood2);
+				Array.prototype.push.apply(ctrl.mood1, ctrl.mood2);
+				// ctrl.url = $sce.trustAsResourceUrl(ctrl.mood2[ctrl.playerInfo.song].stream_url + client_id);
+			});
 		ctrl.url = $sce.trustAsResourceUrl(ctrl.mood1[ctrl.playerInfo.song].stream_url + client_id);
 		ctrl.currentSong = ctrl.mood1[ctrl.playerInfo.song].title;
 	});
-
-		ctrl.songs = [];
-	ctrl.playerInfo = {};
-	ctrl.isStreaming = true;
-	ctrl.mixedMood12 = soundService.then(function(result){
-		ctrl.mixedMood12 = result[ctrl.currentMood].data.slice(3, 6);
-		Array.prototype.push.apply(ctrl.mixedMood12, result[ctrl.endMood].data.slice(6, 9));
-		ctrl.playerInfo.total = ctrl.mixedMood12.length;
-		ctrl.playerInfo.song = 0;
-
-
-		$filter('shuffle')(ctrl.mixedMood12);
-	// 	ctrl.url = $sce.trustAsResourceUrl(ctrl.rockHouseSongs[ctrl.playerInfo.song].stream_url + client_id);
-	});
-
-		ctrl.songs = [];
-	ctrl.playerInfo = {};
-	ctrl.isStreaming = true;
-	ctrl.mood2 = soundService.then(function(result){
-		ctrl.mood2 = result[ctrl.endMood].data.slice(9, 12);
-		ctrl.playerInfo.total = ctrl.mood2.length;
-		ctrl.playerInfo.song = 0;
-
-
-		$filter('shuffle')(ctrl.mood2);
-		// ctrl.url = $sce.trustAsResourceUrl(ctrl.mood2[ctrl.playerInfo.song].stream_url + client_id);
-	});
-
-console.log("current mood" + ctrl.currentMood + " " + ctrl.mood1 + "new mood" + ctrl.endMood);
 
 };
 
@@ -76,7 +62,8 @@ console.log("current mood" + ctrl.currentMood + " " + ctrl.mood1 + "new mood" + 
 		} else {
 		    ctrl.playerInfo.song -= 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[0].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.mood1[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.mood1[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 
@@ -87,7 +74,8 @@ console.log("current mood" + ctrl.currentMood + " " + ctrl.mood1 + "new mood" + 
 		} else {
 		    ctrl.playerInfo.song += 1;
 		}
-		ctrl.url = $sce.trustAsResourceUrl(ctrl.songs[0].data[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.url = $sce.trustAsResourceUrl(ctrl.mood1[ctrl.playerInfo.song].stream_url + client_id);
+		ctrl.currentSong = ctrl.mood1[ctrl.playerInfo.song].title;
 		ctrl.isStreaming = true;
 	};
 
